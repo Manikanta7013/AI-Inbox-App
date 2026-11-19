@@ -8,7 +8,7 @@ export default function Header({ itemCount }: HeaderProps) {
       <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3">
           <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#5b67e8] text-sm font-extrabold text-white shadow-[0_8px_24px_rgba(91,103,232,0.24)]">
-            KI
+           AI
           </div>
           <div>
             <h1 className="text-lg font-bold tracking-[-0.02em] text-[#1c2435]">Knowledge Inbox</h1>

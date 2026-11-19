@@ -1,6 +1,7 @@
 import OpenAI from 'openai';
 import { cosine, embed } from './embeddings.js';
 import { store } from './store.js';
+import { log } from './logger.js';
 
 function extractAnswer(question, matches) {
   const sentences = matches.flatMap((match) => match.text.match(/[^.!?]+[.!?]?/g) || [match.text]).map((s) => s.trim()).filter(Boolean);
@@ -25,7 +26,7 @@ export async function answerQuestion(question, topK = 4) {
       const response = await client.chat.completions.create({ model: process.env.OPENAI_MODEL || 'gpt-4o-mini', temperature: 0.2, messages: [{ role: 'system', content: 'Answer only from the supplied context. Cite claims using [n] notation. If context is insufficient, say so.' }, { role: 'user', content: `Context:\n${context}\n\nQuestion: ${question}` }] });
       return { answer: response.choices[0]?.message?.content || extractAnswer(question, matches), sources: matches };
     } catch (error) {
-      console.error(JSON.stringify({ level: 'error', event: 'llm_error', message: error.message }));
+      log('error', 'llm_error', { message: error.message });
     }
   }
   return { answer: extractAnswer(question, matches), sources: matches };

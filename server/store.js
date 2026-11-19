@@ -2,7 +2,7 @@ import crypto from 'node:crypto';
 import { chunkText } from './content.js';
 import { embed } from './embeddings.js';
 
-class MemoryStore {
+export class MemoryStore {
   constructor() { this.items = []; this.chunks = []; }
   add({ title, rawContent, sourceType, sourceUrl = null }) {
     const item = { id: crypto.randomUUID(), title, rawContent, sourceType, sourceUrl, createdAt: new Date().toISOString() };

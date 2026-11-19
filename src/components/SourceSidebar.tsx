@@ -22,8 +22,8 @@ export default function SourceSidebar(props: SourceSidebarProps) {
   const { tab, title, text, url, items, busy, error, onTabChange, onTitleChange, onTextChange, onUrlChange, onIngest } = props;
 
   return (
-    <aside className="overflow-hidden rounded-2xl border border-[#e3e7ed] bg-white shadow-[0_12px_40px_rgba(31,42,68,0.05)] lg:h-[calc(100vh-120px)] lg:min-h-[620px]">
-      <div className="border-b border-[#edf0f4] p-4">
+    <aside className="flex flex-col overflow-hidden rounded-2xl border border-[#e3e7ed] bg-white shadow-[0_12px_40px_rgba(31,42,68,0.05)] lg:h-[calc(100vh-120px)] lg:min-h-[620px]">
+      <div className="shrink-0 border-b border-[#edf0f4] p-4">
         <div className="grid grid-cols-2 rounded-xl bg-[#f1f3f7] p-1" aria-label="Source type">
           {(['text', 'url'] as const).map((sourceTab) => (
             <button
@@ -88,12 +88,16 @@ export default function SourceSidebar(props: SourceSidebarProps) {
         )}
       </div>
 
-      <div className="flex items-center justify-between px-4 pt-4 pb-2">
+      <div className="flex shrink-0 items-center justify-between px-4 pt-4 pb-2">
         <h2 className="text-sm font-bold text-[#2f3748]">Saved sources</h2>
         <span className="rounded-full bg-[#eef0f5] px-2.5 py-1 text-xs font-bold text-[#7d8697]">{items.length}</span>
       </div>
 
-      <div className="max-h-72 space-y-2 overflow-y-auto px-4 pb-4 lg:max-h-[calc(100%-326px)]">
+      <div
+        aria-label="Saved sources"
+        className="saved-sources-scroll min-h-0 max-h-72 flex-1 space-y-2 overflow-y-auto overscroll-contain px-4 pb-4 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#6975e8] lg:max-h-none"
+        tabIndex={0}
+      >
         {items.map((item) => (
           <article key={item.id} className="rounded-xl border border-[#edf0f4] p-3 transition hover:border-[#dfe4ec] hover:bg-[#fafbfc]">
             <div className="mb-1.5 flex items-center justify-between gap-3">

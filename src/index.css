@@ -30,3 +30,21 @@ textarea,
 a {
   -webkit-tap-highlight-color: transparent;
 }
+
+.saved-sources-scroll {
+  scrollbar-color: #cbd2e0 transparent;
+  scrollbar-width: thin;
+}
+
+.saved-sources-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.saved-sources-scroll::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background-color: #cbd2e0;
+}
+
+.saved-sources-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}

@@ -2,14 +2,21 @@
 
 A full-stack app for saving text notes or web pages and asking questions about the saved content.
 
-- **GitHub:** https://github.com/Manikanta7013/AI-Inbox-App
-- **Live demo:** https://ai-inbox-app.onrender.com
+- **GitHub repository:** [Manikanta7013/AI-Inbox-App](https://github.com/Manikanta7013/AI-Inbox-App)
+- **Live demo:** [ai-inbox-app.onrender.com](https://ai-inbox-app.onrender.com)
 
 ## Run locally
 
-Prerequisite: Node.js 20.19+ (or 22.12+) and npm.
+Prerequisites:
+
+- Node.js 20.19+ (or 22.12+)
+- npm
+
+Clone and start the app:
 
 ```powershell
+git clone https://github.com/Manikanta7013/AI-Inbox-App.git
+cd AI-Inbox-App
 npm ci
 npm run dev
 ```
